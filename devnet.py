@@ -229,7 +229,7 @@ def inject_noise(seed, n_out, random_seed):
 
 def run_devnet(args):
     names = args.data_set.split(',')
-    names = ['annthyroid_21feat_normalised']
+    # names = ['annthyroid_21feat_normalised']
     network_depth = int(args.network_depth)
     random_seed = args.ramdn_seed
     for nm in names:
@@ -338,10 +338,10 @@ parser.add_argument("--batch_size", type=int, default=512, help="batch size used
 parser.add_argument("--nb_batch", type=int, default=20, help="the number of batches per epoch")
 parser.add_argument("--epochs", type=int, default=50, help="the number of epochs")
 parser.add_argument("--runs", type=int, default=10, help="how many times we repeat the experiments to obtain the average performance")
-parser.add_argument("--known_outliers", type=int, default=30, help="the number of labeled outliers available at hand")
+parser.add_argument("--known_outliers", type=int, default=394, help="the number of labeled outliers available at hand")
 parser.add_argument("--cont_rate", type=float, default=0.02, help="the outlier contamination rate in the training data")
 parser.add_argument("--input_path", type=str, default='./dataset/', help="the path of the data sets")
-parser.add_argument("--data_set", type=str, default='annthyroid_21feat_normalised', help="a list of data set names")
+parser.add_argument("--data_set", type=str, default='creditcardfraud_normalised', help="a list of data set names")
 parser.add_argument("--data_format", choices=['0','1'], default='0',  help="specify whether the input data is a csv (0) or libsvm (1) data format")
 parser.add_argument("--output", type=str, default='./results/devnet_auc_performance_30outliers_0.02contrate_2depth_10runs.csv', help="the output file path")
 parser.add_argument("--ramdn_seed", type=int, default=42, help="the random seed number")
